@@ -1,5 +1,9 @@
 __author__ = 'dan'
 
+'''
+Simple (and slow) implementation of the Transfer Entropy (TE) and Generalized Transfer Entropy (GTE)
+that calculates a measure of causality between parallel event streams.
+'''
 import pandas as pd
 import numpy as np
 import math
@@ -169,32 +173,34 @@ def GTE(matrix, k):
             ret[i][j] = Tij
     return ret
 
-# matrix = np.array([
-#     [1,1],
-#     [1,0],
-#     [1,1],
-#     [0,0],
-#     [1,1],
-#     [1,0],
-#     [0,1],
-#     [1,0],
-#     [0,1],
-#     [0,1],
-#     [1,0],
-#     [1,1],
-#     [0,1],
-#     [0,0],
-#     [1,1],
-#     [1,1],
-#     [1,0],
-#     [0,1],
-#     [1,1],
-#     [1,0],
-#     [0,0],
-#     [1,1]])
-#
-# ret = TE(matrix)
-# print('TE ret = ' + str(ret))
-#
-# ret = GTE(matrix, 3)
-# print('GTE ret = ' + str(ret))
+
+def test():
+    matrix = np.array([
+        [1,1],
+        [1,0],
+        [1,1],
+        [0,0],
+        [1,1],
+        [1,0],
+        [0,1],
+        [1,0],
+        [0,1],
+        [0,1],
+        [1,0],
+        [1,1],
+        [0,1],
+        [0,0],
+        [1,1],
+        [1,1],
+        [1,0],
+        [0,1],
+        [1,1],
+        [1,0],
+        [0,0],
+        [1,1]])
+
+    ret = TE(matrix)
+    print('TE ret = ' + str(ret))
+
+    ret = GTE(matrix, 3)
+    print('GTE ret = ' + str(ret))
